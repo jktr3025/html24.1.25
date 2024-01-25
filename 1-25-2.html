@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- font-family: 'Permanent Marker', cursive; -->
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Permanent Marker', cursive;
+            font-size: 16px;
+            height: 100vh;
+            background-image: linear-gradient(to top, #f14353 0%, #219482 50%, #185741 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 100%;
+            padding: 0 20px;
+            display: flex;
+        }
+        .slide{
+            height: 80vh;
+            margin: 10px;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            flex: 1;
+            filter: blur(2px);
+            transition: all 0.3s;
+        }
+        .slide1{
+            background-image: url("img/sl1.jpg");
+        }
+        .slide2{
+            background-image: url("img/sl2.jpg");
+
+        }
+        .slide3{
+            background-image: url("img/sl3.jpg");
+
+        }
+        .slide4{
+            background-image: url("img/sl4.jpg");
+
+        }
+        .slide5{
+            background-image: url("img/sl5.jpg");
+
+        }
+        .slide h3{
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 5vw;
+
+            /* 텍스트 그라디언트 주는 번 */
+            background-color: red;
+            /* background-image: linear-gradient(-225deg, lightblue 0%, white 100%); */
+            background-image: linear-gradient(-225deg, rgb(13, 116, 150) 0%, lightblue 100%);
+            -webkit-text-fill-color: transparent;
+            /* -webkit-text-fill-color: blue; */
+            background-clip: text;
+
+            opacity: 0;
+        }
+        .slide.active{
+            flex: 10;
+            filter: blur(0px);
+        }
+        .slide.active h3{
+            opacity: 1;
+            transition: all 0.3s;
+        }
+    </style>
+    <script lang="java">
+        window.onload = function(){
+
+            function slidesPlug( activeSlide = 2){
+
+                const slides = document.querySelectorAll(".slide");
+                console.log(slides);
+                slides[activeSlide].classList.add("active");
+
+                for( const slide of slides){
+                    slide.addEventListener("click", ()=>{
+                        clearActive();
+                        slide.classList.add("active");
+                    })
+                }//for
+
+                function clearActive(){
+                    slides.forEach(  (slide) =>{
+                        slide.classList.remove("active");
+                    })//forEach
+                }//clearActive
+
+            }//slidesPlug
+
+            slidesPlug();
+
+        }//onload
+    </script>
+</head>
+<body>
+    <div class="container">
+
+        <div class="slide slide1">
+            <h3>Male Goofy Face</h3>
+        </div><!-- slide1 -->
+
+        <div class="slide slide2">
+            <h3>Toy Pig</h3>
+        </div><!-- slide2 -->
+
+        <div class="slide slide3">
+            <h3>Shy Portrait</h3>
+        </div><!-- slid3 -->
+
+        <div class="slide slide4">
+            <h3>Skateboard Face</h3>
+        </div><!-- slide4 -->
+
+        <div class="slide slide5">
+            <h3>Mirror Reflection</h3>
+        </div><!-- slide5 -->
+
+
+    </div><!-- container -->
+
+</body>
+</html>

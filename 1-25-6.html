@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>half slide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Montserrat+Alternates:wght@800&display=swap" rel="stylesheet">
+<!-- 
+font-family: 'Black Ops One', system-ui;
+font-family: 'Montserrat Alternates', sans-serif;
+-->
+<style type="text/css">
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    /* scss */
+    :root{
+        --dark : rgb(20,20,20);
+        --yellow : rgb(248, 245, 74);
+        --blue : rgb(49, 123, 233);
+        
+        --c1 : rgb(96, 236, 138);
+        --c2 : rgb(157, 96, 236);
+        
+        --left_color : rgb(108, 232, 230);
+        --right_color : rgb(223, 124, 185);
+    }
+
+    body{
+        background-color: var(--dark);
+        font-family: 'Black Ops One', system-ui;
+    }
+    .slide{
+        height: 100vh;
+        overflow: hidden;
+        width: 100%;
+        position: absolute;
+        display: grid;
+        place-items: center;
+    }
+    .title{
+        font-size: 8vw;
+        margin: 0 10vw;
+        width: 80vw;
+    }
+    .left_slide{
+        background-color: var(--left_color);
+        width: 60%;
+        z-index: 2;
+    }
+    .left_slide .title{
+        color: #fff;
+    }
+    .right_slide{
+        background-color: var(--right_color);
+    }
+    .right_slide .title{
+        color: var(--dark);
+    }
+    .slide .title span{
+        font-size: 9vw;
+        font-style: italic;
+        font-family: 'Montserrat Alternates', sans-serif;
+    }
+    .left_slide .title span{
+        color: var(--right_color);
+    }
+    .right_slide .title span{
+        color: var(--left_color);
+    }
+</style>
+</head>
+<body>
+    <div class="left_slide slide">
+        <h2 class="title">
+            Sometimes a  Simple header is
+            <span>Better</span>
+        </h2>
+    </div>
+
+    <div class="right_slide slide">
+        <h2 class="title">
+            Sometimes a  Simple header is
+            <span>Better</span>
+        </h2>
+    </div>
+
+    <script lang="java">
+        const left = document.querySelector(".left_slide");
+
+        const handle_move = e=>{
+            // var x = e.clientX;
+            // console.log(x);
+            // left.style.width = $(e.clientX / window.innerWidth * 100)%;
+
+            // e.clientX : 마우스를 따라다니는 x 좌표 값
+            // e.clientY : 마우스를 따라다니는 y 좌표 값
+
+            var x = (e.clientX / window.innerWidth * 100) + "%";
+            console.log(x);
+            left.style.width = x;
+        }//handle_move
+
+        document.onmousemove = e => handle_move(e);
+
+    </script>
+</body>
+</html>

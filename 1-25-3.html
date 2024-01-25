@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- font-family: 'Permanent Marker', cursive; -->
+    <style type="text/css">
+        body{
+            font-family: 'Permanent Marker', cursive;
+            font-size: 10vw;
+        }
+        .stroke_1{
+            -webkit-text-stroke: 1px lightcoral ;
+        }
+        .stroke_2{
+            -webkit-text-stroke-color: brown;
+            -webkit-text-stroke-width: 2px;
+        }
+        .stroke_3{
+            -webkit-text-stroke: 3px steelblue;
+        }
+        .textshadow_1{
+            text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;
+            /* text-shadow: -1px 0  20px red; */
+        }
+        .textshadow_2{
+            text-shadow: 5px 5px gray;
+        }
+        .textshadow_3{
+            text-shadow: 5px 5px 20px rgba(255, 0, 255, 0.3);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div>
+            <div>default text</div>
+
+            <div class="stroke_1">text stroke</div>
+            <div class="stroke_2">text stroke</div>
+            <div class="stroke_3">text stroke</div>
+        </div>
+
+        <div>
+            <div>default text</div>
+
+            <div class="textshadow_1">text shadow</div>
+            <div class="textshadow_2">text shadow</div>
+            <div class="textshadow_3">text shadow</div>
+        </div>
+    </div><!-- row -->
+</body>
+</html>

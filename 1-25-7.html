@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #1c1c1c;
+            text-align: center;
+        }
+        .snap{
+            max-width: 300px;
+            min-width: 230px;
+            text-align: right;
+            width: 100%;
+            display: inline-block;
+            font-size: 16px;
+            margin: 100px 10px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .snap::before,
+        .snap::after{
+            content: "";
+            background-color: cornflowerblue;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+            z-index: 0;
+        }
+        .snap::before{
+            transform: skew(30deg) translateX(80%);
+        }
+        .snap::after{
+            transform: skew(-30deg) translateX(70%);
+        }
+        .snap *,
+        .snap *::before,
+        .snap *::after{
+            transition: all 0.3s ease;
+        }
+/* 스냅에는 안 걸리고 스냅의 모든 후손에게만 적용됨 */
+
+        .snap img{
+            max-width: 100%;
+            display: block;
+        }
+
+        .snap figcaption{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 20px 20px 40%;
+            z-index: 15;
+        }
+    .snap figcaption::before,
+    .snap figcaption::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right:0;
+        left: 0;
+        background-color: cornflowerblue;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+        opacity: 0.5;
+        z-index: -1;
+    }
+    .snap figcaption::before{
+        transform: skew(30deg) translateX(100%);
+    }
+    .snap figcaption::after{
+        transform: skew(-30deg) translateX(90%);
+        
+    }
+    .snap figcaption h3,
+    .snap figcaption p{
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    .snap figcaption h3{
+        color: #fff;
+        font-size: 30px;
+
+    }
+    .snap figcaption p{
+        font-size: 14px;
+        color: #fff;
+
+    }
+    .snap a{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 15;
+    }
+    .snap:hover figcaption h3,
+    .snap:hover figcaption p{
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+    .snap:hover::before{
+        transform: skew(30deg) translateX(30%);
+        transition-delay: 0.05s;
+
+    }
+    .snap:hover::after{
+        transform: skew(-30deg) translateX(20%);
+    }
+    .snap:hover figcaption::before{
+        transform: skew(30deg) translateX(50%);
+        transition-delay: 0.15s;
+    }
+    .snap:hover figcaption::after{
+        transform: skew(-30deg) translateX(40%);
+        transition-delay: 0.1s;
+        
+    }
+    </style>
+</head>
+
+<body>
+    <figure class="snap snap1">
+        <img src="img/sl5.jpg" alt="sl5">
+        <figcaption>
+            <h3>SAMUEL SERIF</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            </p>
+        </figcaption>
+        <a href="#"></a>
+    </figure>
+
+    <figure class="snap snap2">
+        <img src="img/sl4.jpg" alt="sl4">
+        <figcaption>
+            <h3>SAMUEL SERIF</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            </p>
+        </figcaption>
+        <a href="#"></a>
+    </figure>
+
+    <figure class="snap snap3">
+        <img src="img/sl6.jpg" alt="sl6">
+        <figcaption>
+            <h3>SAMUEL SERIF</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            </p>
+        </figcaption>
+        <a href="#"></a>
+    </figure>
+</body>
+
+</html>

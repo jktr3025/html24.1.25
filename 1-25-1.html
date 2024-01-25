@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- font-family: 'Permanent Marker', cursive; -->
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Permanent Marker', cursive;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #fff;
+            background-color: #1c1c1c;
+        }
+        .section_main{
+            max-width: 1140px;
+            width: calc(100% - 40px);
+            margin: 0 auto;
+        }
+        .section_row{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .section_col{
+            max-width: 50%;
+            width: 100%;
+            opacity: 0.1;
+            transition: all 0.3s;
+        }
+        .section_col:hover .section_in img{
+            transform: scale(1.3) rotate(-3deg);
+        }
+        .section_col:hover{
+            opacity: 1;
+        }
+        .section{
+            cursor: pointer;
+            overflow: hidden;
+            width: 100%;
+            padding: 15px;
+        }
+        .section_in{
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .section_in img{
+            display: block;
+            height: auto;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .hover_text{
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            z-index: 100;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+            /* 포지션에 픽스로 제일 위에 있어서
+            앞에 커서 포인트 잡은 것을을 못 잡는데
+            pointer-events: none;로 
+            over_text의 이벤트를 없애주므로써
+            앞의 커서를 잡을 수 있게 됨 */
+
+            mix-blend-mode: soft-light;
+            /* mix-blend-mode: difference; */
+            /* 포토샵의 블렌딩이랑 같은 역할 */
+
+        }
+        .hover_text h2{
+            font-size: 8vw;
+            color: #fff;
+            font-weight: bold;
+            line-height: 1;
+            opacity: 0;
+            transform: scale(0.8);
+            /* transition: all 0.3s; */
+            opacity: opacity 0.2s ease , transform 0.3s linear ;
+        }
+        .section_col:hover + .hover_text h2{
+            /* + :  부보-자식 상속이 아닌 
+             다음에 오는 구조물 잡아주기 위한 것 */
+            opacity: 1;
+            transform: scale(1);
+        }
+        @media screen and (max-width:768px) {
+            .section_col{
+                max-width:100%;
+            }
+            .hover_text h2{
+                font-size: 12vw;
+            }
+        }/* (max-width:768px) */
+    </style>
+</head>
+
+<body>
+    <div class="section_main">
+        <div class="section_row">
+
+            <div class="section_col">
+                <div class="section">
+                    <div class="section_in">
+                        <img src="img/sl1.jpg" alt="slide1">
+                    </div><!-- section_in -->
+                </div><!-- section -->
+            </div><!-- section_col -->
+            <div class="hover_text">
+                <h2>Male Goofy Face</h2>
+            </div><!-- hover_text -->
+
+            <div class="section_col">
+                <div class="section">
+                    <div class="section_in">
+                        <img src="img/sl2.jpg" alt="slide2">
+                    </div><!-- section_in -->
+                </div><!-- section -->
+            </div><!-- section_col -->
+            <div class="hover_text">
+                <h2>Toy Pig</h2>
+            </div><!-- hover_text -->
+
+            <div class="section_col">
+                <div class="section">
+                    <div class="section_in">
+                        <img src="img/sl3.jpg" alt="slide3">
+                    </div><!-- section_in -->
+                </div><!-- section -->
+            </div><!-- section_col -->
+            <div class="hover_text">
+                <h2>Shy Portrait</h2>
+            </div><!-- hover_text -->
+
+            <div class="section_col">
+                <div class="section">
+                    <div class="section_in">
+                        <img src="img/sl4.jpg" alt="slide4">
+                    </div><!-- section_in -->
+                </div><!-- section -->
+            </div><!-- section_col -->
+            <div class="hover_text">
+                <h2>Skateboard Face</h2>
+            </div><!-- hover_text -->
+
+            <div class="section_col">
+                <div class="section">
+                    <div class="section_in">
+                        <img src="img/sl5.jpg" alt="slide5">
+                    </div><!-- section_in -->
+                </div><!-- section -->
+            </div><!-- section_col -->
+            <div class="hover_text">
+                <h2>Mirror Reflection</h2>
+            </div><!-- hover_text -->
+
+            <div class="section_col">
+                <div class="section">
+                    <div class="section_in">
+                        <img src="img/sl6.jpg" alt="slide6">
+                    </div><!-- section_in -->
+                </div><!-- section -->
+            </div><!-- section_col -->
+            <div class="hover_text">
+                <h2>Funny Bunny</h2>
+            </div><!-- hover_text -->
+
+        </div><!-- section_row -->
+    </div><!-- section_main -->
+</body>
+
+</html>
